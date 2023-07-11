@@ -3,32 +3,27 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+public class SumCalculatorTest {
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-class SumCalculatorTest {
-    private SumCalculator sumCalculator;
+    SumCalculator res;
 
     @BeforeEach
-    void setUp() {
-        sumCalculator = new SumCalculator();
+    public void BeforeEach() {
+        res = new SumCalculator();
     }
 
     @Test
-    void testSum() {
-        Map<Integer, Integer> testCases = new HashMap<>();
-        testCases.put(1, 1);
-        testCases.put(3, 6);
-        for ( Map.Entry<Integer, Integer> item: testCases.entrySet()) {
-            assertEquals(item.getValue(), SumCalculator.sum(item.getKey()));
-        }
+    public void testSumOne() {
+        Assertions.assertEquals(1, res.sum(1));
     }
 
     @Test
-    void sumZero() {
-        assertThrows(IllegalArgumentException.class, () -> sumCalculator.sum(0));
+    public void testSumThree() {
+        Assertions.assertEquals(6, res.sum(3));
+    }
+
+    @Test
+    public void testSumZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> res.sum(0));
     }
 }
