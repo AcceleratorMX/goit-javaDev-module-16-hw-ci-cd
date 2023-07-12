@@ -2,7 +2,7 @@ package ua.goit;
 
 public class SumCalculator {
     public static void main(String[] args) {
-        System.out.println(sum(5));
+        System.out.println(sum(7));
     }
         public static int sum (int n){
             return switch (n) {
